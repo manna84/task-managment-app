@@ -1,4 +1,4 @@
-# Task Management (Ugly App)
+# Ugly App - Task Management (Starter Code)
 1. This is a demo app that will encompass the vast majority of topics that is  required for you to complete your project.
 1. This is a task management app that will allow a registered user to do the following :
   * Create Tasks
