@@ -1,0 +1,58 @@
+<h2>Task Dashboard</h2>
+ 
+ <section class="tasks-container">
+   
+
+     <form method="POST" action="/task/search">
+        <label>Search By</label>
+        <select name="task-search">
+                <option value="all">All tasks</option>
+                <option value="open">Open Tasks</option>
+                <option value="on-hold">On Hold Tasks</option>
+                <option value="closed">Closed Tasks</option>
+                <option value="pending">Pending Tasks</option>
+                <option value="low-priority">Low Priority</option>
+                <option value="medium-priority">Meidum Priority</option>
+                <option value="high-priority">High Priority</option>
+        </select>
+        <input type="submit" value="Search">
+     </form> <br><br>
+
+    <table border="1" style="text-align: center;">
+        <thead>
+                <th>Title</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Due Date</th>
+                <th>Operation</th>
+        </thead>
+        <tbody>
+           
+                <tr>
+                   <td>
+                        <a href="/task/profile/{{this.id}}" class="task-title">Task Title Goes Here</a>
+                   </td>
+                   <td>
+                       <span>Priority</span>
+                      
+                   </td>
+                   <td>
+                        <span>Status</span>
+                   </td>
+                   <td>
+                       <span>Due Date</span>
+                   </td>
+                   <td>
+                        <a href="" class="edit-delete-button">Edit</a>
+                        <a href="" class="edit-delete-button">Delete</a>
+                   </td> 
+                </tr>
+    </tbody>
+    </table>
+ 
+</section>
+
+<div id="tasks-links-holder">
+    <a href="/task/add">Add a Task</a>
+</div>
+
