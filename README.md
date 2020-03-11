@@ -5,7 +5,7 @@
   * Set the priority and status of the tasks.
   * Update the task if the status changes. 
   * Delete Tasks
-1. The web app must allow visitors to register because no one can use the task feature until they become a member of a the site. Thus, other features of the website include :
+3. The web app must allow visitors to register because no one can use the task feature until they become a member of a the site. Thus, other features of the website include :
 * Allow visitors to register by submitting their personal information and a photo of themselves.
 * Create an authentication module 
 * Create an Authorization module
