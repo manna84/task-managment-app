@@ -2,6 +2,7 @@
 /*********************Task ROUTES***************************/
 const express = require('express')
 const router = express.Router();
+const taskModel = require("../models/task.js");
 
 
 //Route to direct use to Add Task form
@@ -13,6 +14,19 @@ router.get("/add",(req,res)=>
 //Route to process user's request and data when the user submits the add task form
 router.post("/add",(req,res)=>
 {
+    const newUser = {
+        title: req.body.title,
+        description: req.body.description,
+        dueDate: req.body.dueDate,
+        priority: req.body.priority
+    }
+
+    const task = new taskModel(newUser);
+    task.save()
+    .then(()=>{
+        res.redirect('/task/list')
+    })
+    .catch(err=>console.log(`Error happended: ${err}`))
 
    
 });
@@ -20,7 +34,17 @@ router.post("/add",(req,res)=>
 ////Route to fetch all tasks
 router.get("/list",(req,res)=>
 {
-    res.render("Task/taskDashboard");
+    taskModel.find()
+    .then((tasks)=>{
+
+        const filteredTask = tasks.map();
+
+        res.render("Task/taskDashboard");
+
+    })
+    .catch(err=>console.log(`Error happended pulling: ${err}`))
+
+    
   
 });
 
