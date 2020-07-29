@@ -37,9 +37,20 @@ router.get("/list",(req,res)=>
     taskModel.find()
     .then((tasks)=>{
 
-        const filteredTask = tasks.map();
+        const filteredTask = tasks.map(task=>{
+            return {
+                id:task._id,
+                title:task.title,
+                description:task.description,
+                dueDate:task.dueDate,
+                status:task.status,
+                priority:task.priority
+            }
+        });
 
-        res.render("Task/taskDashboard");
+        res.render("Task/taskDashboard",{
+            data:filteredTask
+        });
 
     })
     .catch(err=>console.log(`Error happended pulling: ${err}`))

@@ -27,26 +27,27 @@
                 <th>Operation</th>
         </thead>
         <tbody>
-           
+           {{#each data}}
                 <tr>
                    <td>
-                        <a href="/task/profile/{{this.id}}" class="task-title">Task Title Goes Here</a>
+                        <a href="/task/profile/{{this.id}}" class="task-title">{{this.title}}</a>
                    </td>
                    <td>
-                       <span>Priority</span>
+                       <span>{{this.priority}}</span>
                       
                    </td>
                    <td>
-                        <span>Status</span>
+                        <span>{{this.status}}</span>
                    </td>
                    <td>
-                       <span>Due Date</span>
+                       <span>{{this.dueDate}}</span>
                    </td>
                    <td>
                         <a href="" class="edit-delete-button">Edit</a>
                         <a href="" class="edit-delete-button">Delete</a>
                    </td> 
                 </tr>
+            {{/each}}
     </tbody>
     </table>
  
