@@ -25,6 +25,19 @@ app.use(express.static("public"));
 app.engine("handlebars",exphbs());
 app.set("view engine","handlebars");
 
+//THis is to allow specific forms or links that were submitted/pressed to send PUT and DELETE 
+app.use((req,res,next)=>{
+    if(req.query.method=="PUT") {
+        req.method="PUT"
+    }
+
+    else if(req.query.method=="DELETE") {
+        req.method="DELETE"
+    }
+
+    next();
+})
+
 //MAPs EXPRESS TO ALL OUR  ROUTER OBJECTS
 app.use("/",generalRoutes);
 app.use("/user",userRoutes);
