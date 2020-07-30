@@ -66,6 +66,27 @@ router.get("/description",(req,res)=>{
 
 })
 
+router.get("/edit/:id",(req,res)=>{
+
+    taskModel.findById(req.params.id)
+    .then((task)=>{
+
+        const {_id,title,description,dueDate,priority,status} = task;
+        res.render("Task/taskEditForm",{
+            _id,
+            title,
+            description,
+            dueDate,
+            priority,
+            status
+        })
+    })
+
+    .catch(err=>console.log(`Error happended update: ${err}`))
+
+    
+})
+
 
 //Route to direct user to edit task form
 
